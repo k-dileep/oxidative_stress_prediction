@@ -157,6 +157,6 @@ try:
     plt.show()
 
 except ValueError:
-    print("Please enter valid numerical values for Radiation and Fibrinogen.")
+    print("Please enter valid numerical values for Radiation and Fibrinogen parameters")
 
 

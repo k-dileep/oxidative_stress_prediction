@@ -5,4 +5,4 @@ Abstract- This study investigates oxidative stress in children exposed to cell p
  
  
  
- Index Terms- Neural Network Model, Superoxide Dismutase(SOD), Fibrinogen Concentration, Oxidative Sress.
+ Index Terms- Neural Network Model,Decision Tree Regression Superoxide Dismutase(SOD), Fibrinogen Concentration, Oxidative Sress.

@@ -13,9 +13,36 @@ import warnings
 # Suppress PolynomialFeatures warning
 warnings.filterwarnings('ignore', category=UserWarning, message="X does not have valid feature names")
 
-# Load dataset and handle missing data
+# Load dataset 
 file_path = 'dataset.csv'   # Update with the correct path to your CSV file
 df = pd.read_csv(file_path)
+
+# Plot histogram for each feature to show the distribution
+plt.figure(figsize=(12, 8))
+
+# Select the columns of interest (e.g., 'Radiation', 'FIBRINOGEN', 'SOD_Activity')
+columns = ['Radiation', 'FIBRINOGEN', 'SOD_Activity']  # Modify as needed
+for i, column in enumerate(columns, 1):
+    plt.subplot(2, 2, i)  # Adjust the subplot grid as necessary
+    sns.histplot(df[column], kde=True, bins=20, color='skyblue')  # Histogram with KDE
+    plt.title(f'Distribution of {column}')
+    plt.xlabel(column)
+    plt.ylabel('Frequency')
+
+plt.tight_layout()
+plt.show()
+
+# Optionally, you can create a box plot to check for outliers
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=df[columns])  # Box plot for multiple features
+plt.title('Box Plot for Feature Distributions')
+plt.show()
+
+# Alternatively, pair plot for a pairwise distribution of features
+sns.pairplot(df[columns])  # Pairwise scatter plots
+plt.show()
+
+# Handle missing data
 df.replace("", np.nan, inplace=True)
 df.dropna(subset=['SOD_Activity', 'FIBRINOGEN', 'Radiation'], inplace=True)
 

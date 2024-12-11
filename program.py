@@ -32,16 +32,6 @@ for i, column in enumerate(columns, 1):
 plt.tight_layout()
 plt.show()
 
-# Optionally, you can create a box plot to check for outliers
-plt.figure(figsize=(12, 6))
-sns.boxplot(data=df[columns])  # Box plot for multiple features
-plt.title('Box Plot for Feature Distributions')
-plt.show()
-
-# Alternatively, pair plot for a pairwise distribution of features
-sns.pairplot(df[columns])  # Pairwise scatter plots
-plt.show()
-
 # Handle missing data
 df.replace("", np.nan, inplace=True)
 df.dropna(subset=['SOD_Activity', 'FIBRINOGEN', 'Radiation'], inplace=True)
